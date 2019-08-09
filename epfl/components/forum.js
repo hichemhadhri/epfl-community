@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,Image,TextInput,Button } from 'react-native';
+import { StyleSheet, Text, View,Image,TextInput,Button,Picker } from 'react-native';
 import { SearchBar ,Header, Icon } from 'react-native-elements';
 
 
@@ -8,7 +8,9 @@ class Forum extends React.Component {
      super(props);
      this.state = {
        search : '',
-       options : false
+       options : false,
+       section : '',
+       niveau : ''
      };
    }
 
@@ -43,8 +45,25 @@ renderAdvancedOptions = () =>{
 
      return (
 
-        <Text> this is the options </Text>
-       
+       <Picker onValueChange={(itemValue, itemIndex) =>  this.setState({section: itemValue})  }   selectedValue={this.state.section}>
+    <Picker.Item label="Section" value="section" />
+    <Picker.Item label="Architecture" value="architecture" />
+    <Picker.Item label="Chimie et génie Chimique" value="Chimie et génie Chimique" />
+    <Picker.Item label="Génie civil" value="Génie civil" />
+    <Picker.Item label="Génie électrique et électronique" value="Génie électrique et électronique" />
+    <Picker.Item label="Génie Mécanique" value="Génie Mécanique" />
+    <Picker.Item label="Informatique" value="Informatique" />
+    <Picker.Item label="Ingénieurie des Sciences du vivant" value="Ingénieurie des Sciences du vivant" />
+    <Picker.Item label="Mathématiques" value="Mathématiques" />
+    <Picker.Item label="Microtechnique" value="Microtechnique" />
+    <Picker.Item label="Physique" value="Physique" />
+    <Picker.Item label="Science et Génie des Matériaux" value="Science et Génie des Matériaux" />
+    <Picker.Item label="Sciences et Ingénierie de l’Environnement" value="Sciences et Ingénierie de l’Environnement" />
+    <Picker.Item label="Systèmes de Communication" value="Systèmes de Communication" />
+    <Picker.Item label="Cours de Mathématiques Spéciales (CMS, année préparatoire)" value="Cours de Mathématiques Spéciales (CMS, année préparatoire)" />
+     </Picker>
+     
+
      );
    }
 }
@@ -125,7 +144,7 @@ renderAdvancedOptions = () =>{
       flex : 3
     },
     Options : {
-        flex : 2
+        flex : 2,
     }
   });
 
