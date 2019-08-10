@@ -42,8 +42,8 @@ class Sign extends React.Component {
   render() {
         console.log(this.state)
     return (
-    <View style={styles.main_container} >
-      <View style={styles.input_container}>
+    <KeyboardAvoidingView style={styles.main_container} >
+      <ScrollView ContentContainerStyle={styles.input_container}>
           <Text color='grey' style={{marginBottom:5,marginTop:5}}>nom et prenom </Text>
           <TextInput style={styles.input} onChangeText={(nom) => this.setState({nom : nom})} value={this.state.nom}/>
           <Text color='grey' style={{marginBottom:5}}>age </Text>
@@ -83,9 +83,9 @@ class Sign extends React.Component {
           <TextInput style={styles.input} />
           <Text></Text>
 
-          </View>
+          </ScrollView>
              <Button title = "Sign Up "  style={styles.bouton} color='red' onPress={() => this._signUp()}/>
-          </View>
+          </KeyboardAvoidingView>
     )
   }
 
